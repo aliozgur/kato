@@ -292,10 +292,12 @@ namespace Kato.Resources
 			int i = firstNonZero.index;
 			string prefix = (i >= 3) ? "" : "about ";
 			int quantity = (int) Math.Round(doubles[i]);
-			return prefix + Tense(quantity, s_names[i]) + " ago";
-		}
+            //return prefix + Tense(quantity, s_names[i]) + " ago";
+            return Tense(quantity, s_names[i]);
 
-		private static string Tense(int quantity, string noun)
+        }
+
+        private static string Tense(int quantity, string noun)
 		{
 			return quantity == 1
 				? "1 " + noun

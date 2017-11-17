@@ -9,17 +9,17 @@ namespace Kato
 {
 	public enum BuildStatus
 	{
-		Unknown,
-		Disabled,
-		AbortedAndBuilding,
-		Aborted,
-		FailedAndBuilding,
-		Failed,
-		SuccessAndBuilding,
-		Success,
-	}
+        Failed = 0,
+        FailedAndBuilding = 1,
+        Aborted=2,
+        AbortedAndBuilding=3,
+		SuccessAndBuilding=4,
+		Success = 5,
+        Disabled = 6,
+        Unknown = 7,
+    }
 
-	public class ServerViewModel : PropertyChangedBase
+    public class ServerViewModel : PropertyChangedBase
 	{
 		public ServerViewModel(JenkinsClient client, Server server)
 		{

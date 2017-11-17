@@ -21,7 +21,7 @@ namespace Kato
 
 		private void DoFetchOutput()
 		{
-			m_timer.IsEnabled = false;
+            m_timer.IsEnabled = false;
 			Task.Run(() => HttpHelper.GetConsoleOutput(m_model.Path, m_lastOffset))
 			.ContinueWith(x =>
 			{
@@ -45,6 +45,7 @@ namespace Kato
 		readonly DispatcherTimer m_timer;
 		long m_lastOffset;
 		bool m_isBuilding;
+        JenkinsClient m_client;
 	}
 
 	public class TextAddedEventArgs : EventArgs

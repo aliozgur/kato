@@ -7,6 +7,13 @@ namespace Kato
 {
 	public sealed class PersistedUserSettings
 	{
+        static PersistedUserSettings()
+        {
+            var dataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), App.AppName);
+            if (!Directory.Exists(dataFolder))
+                Directory.CreateDirectory(dataFolder);
+        }
+
 		public static T Open<T>()
 		{
 			string filePath = Path.Combine(s_savedFilePathBase, typeof(T).Name + ".dat");
